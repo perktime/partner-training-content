@@ -17,7 +17,7 @@ This challenge teaches fundamental Cosmos DB concepts through hands-on experimen
 ## Pre-Challenge Setup for Coaches
 
 ### Sample Data Files
-Ensure teams have access to sample e-commerce data files in their Resources.zip:
+Ensure teams have access to sample e-commerce data files:
 - `customers.json` - Customer records
 - `products.json` - Product catalog
 - `categories.json` - Product categories
