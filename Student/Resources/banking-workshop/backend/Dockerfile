@@ -1,5 +1,5 @@
 # Use an official Python image
-FROM mcr.microsoft.com/azurelinux/base/python:3.12
+FROM python:3.11
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -20,4 +20,4 @@ EXPOSE 8080
 ENV PYTHONPATH=/app
 ENV PYTHONUNBUFFERED=1
 
-CMD ["python3", "-u", "-m", "uvicorn", "src.app.banking_agents_api:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["python", "-u", "-m", "uvicorn", "src.app.banking_agents_api:app", "--host", "0.0.0.0", "--port", "8080"]
