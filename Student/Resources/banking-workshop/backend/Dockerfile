@@ -1,5 +1,5 @@
 # Use an official Python image
-FROM python:3.11
+FROM mcr.microsoft.com/azurelinux/base/python:3.12
 
 # Set the working directory inside the container
 WORKDIR /app
