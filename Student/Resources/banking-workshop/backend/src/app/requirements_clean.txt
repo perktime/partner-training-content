@@ -1,0 +1,29 @@
+# Cleaned requirements.txt - Agent Framework Only
+# Core dependencies
+fastapi==0.115.7
+fastapi-cli==0.0.7
+uvicorn==0.34.0
+starlette==0.45.3
+python-multipart==0.0.20
+python-dotenv==1.0.1
+
+# Azure dependencies
+azure-core==1.32.0
+azure-cosmos==4.9.0
+azure-identity==1.19.0
+azure-monitor-opentelemetry
+
+# Agent Framework dependencies
+agent-framework-azure-ai
+agent-framework-core
+
+# Core Python packages
+aiohttp==3.11.11
+anyio==4.8.0
+httpx==0.28.1
+pydantic==2.10.6
+click==8.1.8
+typer==0.15.1
+rich==13.9.4
+PyYAML==6.0.2
+requests==2.32.3

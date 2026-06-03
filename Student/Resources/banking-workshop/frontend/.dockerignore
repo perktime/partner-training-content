@@ -1,0 +1,10 @@
+# Ignore everything by default so the build context stays small,
+# then explicitly include what the multi-stage build needs.
+**/node_modules
+**/dist
+**/.angular
+**/.vscode
+**/coverage
+**/*.log
+Dockerfile
+.dockerignore

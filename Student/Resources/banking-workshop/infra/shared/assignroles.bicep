@@ -2,6 +2,7 @@
 param cosmosDbAccountName string
 param identityName string
 param openAIName string
+param acrName string
 
 @description('Id of the user principals to assign database and application roles.')    
 param userPrincipalId string = '' 
@@ -17,6 +18,21 @@ resource openAi 'Microsoft.CognitiveServices/accounts@2024-10-01' existing = {
 
 resource cosmosDb 'Microsoft.DocumentDB/databaseAccounts@2023-11-15' existing = {
   name: cosmosDbAccountName
+}
+
+resource acr 'Microsoft.ContainerRegistry/registries@2023-07-01' existing = {
+  name: acrName
+}
+
+// Role Assignment for AcrPull to UAMI (so ACI can pull images using the managed identity)
+resource acrPullRoleAssignmentUAMI 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: guid(identity.id, acr.id, 'acr-pull')
+  scope: acr
+  properties: {
+    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '7f951dda-4ed3-4680-a7ca-43fe172d538d') // AcrPull
+    principalId: identity.properties.principalId
+    principalType: 'ServicePrincipal'
+  }
 }
 
 

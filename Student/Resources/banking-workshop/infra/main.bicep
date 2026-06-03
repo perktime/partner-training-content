@@ -36,6 +36,17 @@ module managedIdentity './shared/managedidentity.bicep' = {
   scope: rg
 }
 
+// Deploy Azure Container Registry (used to host the frontend and backend images for ACI)
+module acr './shared/acr.bicep' = {
+  name: 'acr'
+  params: {
+    name: '${abbrs.containerRegistryRegistries}${resourceToken}'
+    location: location
+    tags: tags
+  }
+  scope: rg
+}
+
 // Deploy Azure Cosmos DB
 module cosmos './shared/cosmosdb.bicep' = {
   name: 'cosmos'
@@ -108,6 +119,7 @@ module AssignRoles './shared/assignroles.bicep' = {
   params: {
     cosmosDbAccountName: cosmos.outputs.name
     openAIName: openAi.outputs.name
+    acrName: acr.outputs.name
     identityName: managedIdentity.outputs.name
 	  userPrincipalId: !empty(principalId) ? principalId : null
   }
@@ -121,3 +133,6 @@ output COSMOSDB_ENDPOINT string = cosmos.outputs.endpoint
 output AZURE_OPENAI_ENDPOINT string = openAi.outputs.endpoint
 output AZURE_OPENAI_COMPLETIONSDEPLOYMENTID string = openAiModelDeployments[0].outputs.name
 output AZURE_OPENAI_EMBEDDINGDEPLOYMENTID string = openAiModelDeployments[1].outputs.name
+output ACR_NAME string = acr.outputs.name
+output ACR_LOGIN_SERVER string = acr.outputs.loginServer
+output AZURE_IDENTITY_NAME string = managedIdentity.outputs.name

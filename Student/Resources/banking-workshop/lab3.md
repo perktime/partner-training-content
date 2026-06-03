@@ -31,7 +31,7 @@ pip install -r src/app/requirements.txt
 Start the FastAPI service:
 
 ```bash
-uvicorn src.app.banking_agents_api:app --host 0.0.0.0 --port 63280
+uvicorn src.app.banking_agents_api_af:app --host 0.0.0.0 --port 63280
 ```
 
 You should see output similar to the following:
