@@ -35,7 +35,7 @@ A GitHub Codespace is a development environment that is hosted in the cloud that
 
 - [Use GitHub Codespaces](#use-github-codespaces)
 - [Use Local Workstation](#use-local-workstation)
-
+- [Use Azure Cloud Shell](#use-azure-cloudshell)
 **NOTE:** We highly recommend using GitHub Codespaces to make it easier to complete this hack. Another option is to use Azure Cloud shell and use VS Code for the Web. While not as functional, it wll allow you to deploy what you need to run this hack. 
 
 ### Use Github Codespaces
@@ -78,6 +78,7 @@ If you want to use Azure Cloud Shell because you cannot use GitHub Codespaces, e
   source .venv/bin/activate
   ```
 - You should see a (.venv) before your prompt indicating you are now in a Python virtual environment.
+- This may seem counterintuitive if you know Azure Cloud Shell, but you will need to run `azd auth login` and `az login`. 
 </details>
 
 ### Use Local Workstation
