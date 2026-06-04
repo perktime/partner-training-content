@@ -15,8 +15,15 @@ def main():
     if not cosmos_endpoint:
         raise ValueError("COSMOSDB_ENDPOINT environment variable is not set.")
     
-    # Initialize Azure credential
-    credential = DefaultAzureCredential()
+    # Initialize Azure credential.
+    # Only trust managed identity when running on real Azure compute
+    # (App Service / Functions / Container Apps / ACI all set IDENTITY_ENDPOINT).
+    # In Cloud Shell, the MSI endpoint exists but rejects the Cosmos audience
+    # (AudienceNotSupported), short-circuiting the chain before AzureCliCredential.
+    on_azure_compute = "IDENTITY_ENDPOINT" in os.environ
+    credential = DefaultAzureCredential(
+        exclude_managed_identity_credential=not on_azure_compute
+    )
     
     # Create Cosmos DB client
     cosmos_client = CosmosClient(
