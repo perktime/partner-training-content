@@ -36,7 +36,7 @@ A GitHub Codespace is a development environment that is hosted in the cloud that
 - [Use GitHub Codespaces](#use-github-codespaces)
 - [Use Local Workstation](#use-local-workstation)
 
-**NOTE:** We highly recommend using GitHub Codespaces to make it easier to complete this hack.
+**NOTE:** We highly recommend using GitHub Codespaces to make it easier to complete this hack. Another option is to use Azure Cloud shell and use VS Code for the Web. While not as functional, it wll allow you to deploy what you need to run this hack. 
 
 ### Use Github Codespaces
 
@@ -63,6 +63,22 @@ Your developer environment is ready, hooray! Skip to section: [Deploy Azure Reso
 **NOTE:** GitHub Codespaces time out after 20 minutes if you are not actively interacting with it in the browser. If your codespace times out, you can restart it and the developer environment and its files will return with its state intact within seconds. If you want to have a better experience, you can also update the default timeout value in your personal setting page on Github. Refer to this page for instructions: [Default-Timeout-Period](https://docs.github.com/en/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces#setting-your-default-timeout-period) 
 
 **NOTE:** Codespaces expire after 30 days unless you extend the expiration date. When a Codespace expires, the state of all files in it will be lost.
+
+### Use Azure Cloud Shell
+**NOTE:** You can skip this section and continue on to "Setup Banking Application" if you are using GitHub Codespaces!
+If you want to use Azure Cloud Shell because you cannot use GitHub Codespaces, expand the section below and follow in requirements listed.
+<details markdown=1>
+<summary markdown="span">Click to expand/collapse the instructions for Azure Cloud Shell</summary>
+
+- Launch the Azure Portal and click the icon to launch Azure Cloud shell. You should use Bash. It's recommended that you use a cloud drive to persist files across sessions.
+- Use `git clone` to clone this repo to your Azure Cloud shell. 
+- You will need to setup an Python virtual environment since Python's default environment is read-only. Use these commands:
+  ```bash
+  python3 -m venv .venv
+  source .venv/bin/activate
+  ```
+- You should see a (.venv) before your prompt indicating you are now in a Python virtual environment.
+</details>
 
 ### Use Local Workstation
 
