@@ -36,6 +36,7 @@ A GitHub Codespace is a development environment that is hosted in the cloud that
 - [Use GitHub Codespaces](#use-github-codespaces)
 - [Use Local Workstation](#use-local-workstation)
 - [Use Azure Cloud Shell](#use-azure-cloudshell)
+  
 **NOTE:** We highly recommend using GitHub Codespaces to make it easier to complete this hack. Another option is to use Azure Cloud shell and use VS Code for the Web. While not as functional, it wll allow you to deploy what you need to run this hack. 
 
 ### Use Github Codespaces
