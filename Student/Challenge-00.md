@@ -67,6 +67,7 @@ Your developer environment is ready, hooray! Skip to section: [Deploy Azure Reso
 
 ### Use Azure Cloud Shell
 **NOTE:** You can skip this section and continue on to "Setup Banking Application" if you are using GitHub Codespaces!
+
 If you want to use Azure Cloud Shell because you cannot use GitHub Codespaces, expand the section below and follow in requirements listed.
 <details markdown=1>
 <summary markdown="span">Click to expand/collapse the instructions for Azure Cloud Shell</summary>
